@@ -14,23 +14,23 @@ const marble = (() => {
     );
     if (playerGuess === null) {
       return null;
-    }
+    };
     if (checkIfNumber(playerGuess)) {
-      alert("Неверный ввод!");
+      alert('Неверный ввод!');
       return getPlayerGuess();
-    }
+    };
     playerGuess = parseInt(playerGuess);
     if (playerGuess < 1 || playerGuess > result.playerBalls) {
       alert(`Введите корректное значение: от 1 до ${result.playerBalls}`);
       return getPlayerGuess();
-    }
+    };
     return playerGuess;
   };
 
   const updateBalls = (playerGuess, botGuess) => {
     if (
-      (playerGuess % 2 === 0 && botGuess === "нечетное") ||
-      (playerGuess % 2 !== 0 && botGuess === "четное")
+      (playerGuess % 2 === 0 && botGuess === 'нечетное') ||
+      (playerGuess % 2 !== 0 && botGuess === 'четное')
     ) {
       result.botBalls -= playerGuess;
       result.playerBalls += playerGuess;
@@ -46,11 +46,10 @@ const marble = (() => {
   };
 
   const getBotGuess = () => {
-    return Math.random() < 0.5 ? "четное" : "нечетное";
+    return Math.random() < 0.5 ? 'четное' : 'нечетное';
   };
 
   const game = () => {
-    debugger;
     if (result.playerBalls <= 0) {
       return false;
     } else if (result.botBalls <= 0) {
@@ -69,8 +68,8 @@ const marble = (() => {
 
   const startGame = () => {
     alert(`\t\t\tДобро пожаловать в игру!     \t
-                 \tКоличество шаров у игрока: ${result.playerBalls}\t
-                 \tКоличество шаров у компьютера: ${result.botBalls}\t`);
+                   \tКоличество шаров у игрока: ${result.playerBalls}\t
+                   \tКоличество шаров у компьютера: ${result.botBalls}\t`);
     const resultGame = game();
     if (resultGame === null) alert("Выходим из игры!");
     else if (resultGame === true) {
