@@ -34,19 +34,19 @@ const marble = (() => {
     ) {
       result.botBalls -= playerGuess;
       result.playerBalls += playerGuess;
-      alert("Bot loses " + playerGuess + " balls.");
+      alert(`Компьютер теряет: ${playerGuess} шар(а)ов`);
     } else {
       result.playerBalls -= playerGuess;
       result.botBalls += playerGuess;
-      alert(`Игрок теряет: ${playerGuess} шаров`);
+      alert(`Игрок теряет: ${playerGuess} шар(а)ов`);
     }
     alert(
-      "Player balls: " + result.playerBalls + " | Bot balls: " + result.botBalls
+      `У игрока: ${result.playerBalls} шаров. У компьютера: ${result.botBalls} шаров.`
     );
   };
 
   const getBotGuess = () => {
-    return Math.random() < 0.5 ? "четное" : "нечетное";
+    return Math.random() < 0.5 ? 'четное' : 'нечетное';
   };
 
   const game = () => {
@@ -61,7 +61,7 @@ const marble = (() => {
       return null;
     }
     const botGuess = getBotGuess();
-    alert("Bot guessed: " + botGuess);
+    alert(`Компьютер загадал: ${botGuess}`);
     updateBalls(playerGuess, botGuess);
     return game();
   };
@@ -71,12 +71,12 @@ const marble = (() => {
                  \tКоличество шаров у игрока: ${result.playerBalls}\t
                  \tКоличество шаров у компьютера: ${result.botBalls}\t`);
     const resultGame = game();
-    if (resultGame === null) alert("Выходим из игры!");
+    if (resultGame === null) alert('Выходим из игры!');
     return false;
     if (resultGame === true) {
-      alert("Поздравляем, вы выиграли! Отличная работа!");
+      alert(`Поздравляем, вы выиграли! Отличная работа!`);
     } else if (resultGame === false) {
-      alert("Вы проиграли! Повезет в следующий раз!");
+      alert(`Вы проиграли! Повезет в следующий раз!`);
       return false;
     }
   };
