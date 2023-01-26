@@ -50,9 +50,9 @@ const marble = (() => {
   };
 
   const game = () => {
-    if (result.playerBalls <= 0) {
+    if (result.playerBalls === 0) {
       return false;
-    } else if (result.botBalls <= 0) {
+    } else if (result.botBalls === 0) {
       return true;
     }
     let playerGuess = getPlayerGuess();
